@@ -1,0 +1,17 @@
+def get_outlier(df, col_name, limit_factor=3):
+  upper_limit = df[col_name].mean()+ limit_factor*df[col_name].std()
+  lower_limit = df[col_name].mean()- limit_factor*df[col_name].std()
+  return len(df[(df[col_name]<lower_limit)|(df[col_name]>upper_limit)])
+outlier_dict = dict()
+for col in df1.columns:
+  count = get_outlier(df1, col, limit_factor=3)
+  #print(col, count)
+  outlier_dict[col] = count
+count_outliers=pd.DataFrame(outlier_dict,index=["outliers"])
+count_outliers
+plt.hist(count_outliers, bins=8)
+outlier_dict = dict()
+for col in df1.columns:
+  count = get_outlier(df1, col, limit_factor=3)
+  print(col, count)
+  outlier_dict[col] = count
