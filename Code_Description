@@ -1,0 +1,9 @@
+df_list = [df1.describe(),
+pd.DataFrame(outlier_dict, index=['outlier_count']),
+pd.DataFrame(null_dict, index=['null_count']),
+pd.DataFrame(skew_dict, index=['skew']),
+pd.DataFrame(type_dict, index=['dtype']),
+pd.DataFrame(shapiro_test_value_dict, index=['shapiro_test_value']),
+pd.DataFrame(shapiro_p_value_dict, index=['shapiro_p_value']),]
+detailed_describe = pd.concat(df_list)
+detailed_describe
